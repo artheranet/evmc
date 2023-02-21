@@ -79,7 +79,8 @@ enum evmc_call_kind
                                 The value param ignored. */
     EVMC_CALLCODE = 2,     /**< Request CALLCODE. */
     EVMC_CREATE = 3,       /**< Request CREATE. */
-    EVMC_CREATE2 = 4       /**< Request CREATE2. Valid since Constantinople.*/
+    EVMC_CREATE2 = 4,      /**< Request CREATE2. Valid since Constantinople.*/
+    EVMC_CREATE3 = 5       /**< Request CREATE3. Valid since Prague.*/
 };
 
 /** The flags for ::evmc_message. */
@@ -187,6 +188,13 @@ struct evmc_message
      * Defined as `c` in the Yellow Paper.
      */
     evmc_address code_address;
+
+    /**
+     * The index of the embedded container that works as init code for creation message.
+     *
+     * Ignored unless kind is ::EVMC_CREATE3.
+     */
+    uint8_t initcontainer_index;
 };
 
 
