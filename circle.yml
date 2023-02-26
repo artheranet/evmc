@@ -271,7 +271,7 @@ jobs:
 
   build-gcc-32bit:
     docker:
-      - image: ethereum/cpp-build-env:17-gcc-11-multilib
+      - image: ethereum/cpp-build-env:19-gcc-12-multilib
     steps:
       - checkout
       - build:
@@ -280,7 +280,7 @@ jobs:
 
   build-cmake-min:
     docker:
-      - image: cimg/base:stable-18.04
+      - image: cimg/base:stable-20.04
     steps:
       - run:
           name: "Install default CMake"
